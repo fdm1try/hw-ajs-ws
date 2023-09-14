@@ -1,0 +1,199 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #107ABB;
+}
+
+/* CHAT */
+
+.chat {
+    display: flex;
+    align-items: flex-start;
+    width: 90%;
+    margin: 5vh 5vw;
+}
+
+.chat-users {
+    background: white;
+    min-width: 200px;
+    min-height: 100px;
+    overflow-x: hidden;
+    align-self: flex-start;
+    border-radius:20px 0 0 20px;
+    border: 4px solid #06466d;
+    border-right: 0;
+    box-sizing: border-box;
+}
+
+.chat-users-header {
+    border-bottom: 4px solid #06466d;
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.chat-user {
+    padding: 10px 20px;
+}
+
+.chat-user:nth-child(odd) {    
+    background: #cad9e3;
+}
+
+.chat-body {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    flex-grow: 1;
+    height: 90vh;
+    border: 4px solid #06466d;
+}
+
+.chat-messages-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+}
+
+.chat-messages {
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.chat-send {
+    display: flex;
+    border-top: 1px solid black;
+}
+
+.chat-send-message_input, .chat-send-message_button {
+    padding: 10px 20px;
+}
+
+.chat-send-message_input {
+    flex-grow: 1;
+    border: none;
+    
+}
+
+.chat-send-message_button {
+    position: relative;
+    cursor: pointer;
+    border: none;
+    background: rgb(147, 221, 147);
+    border: none;
+}
+
+.chat-send-message_button[disabled]::after {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgb(213, 239, 213);;
+    top: 0;
+    left: 0;
+    content: 'Отправка...';
+}
+
+/* CHAT MESSAGE */
+
+.chat-message {
+    border-radius: 0 5px 5px 0;
+    background: rgb(212, 221, 237);
+    padding: 10px 20px;
+    margin: 10px 0;
+    align-self: flex-start;
+    max-width: 80%;
+}
+
+.chat-message-header {
+    display: flex;
+    font-size: 12px;
+}
+
+.chat-message-content {
+    padding: 10px 0;
+}
+
+.chat-message.chat-message-byuser .chat-message-author {
+    content: 'You';
+}
+
+.chat-message.chat-message-byuser {
+    align-self: flex-end;
+    border-radius: 5px 0 0 5px;
+}
+
+.chat-message.chat-message-byuser .chat-message-content {}
+
+/* MODAL */
+.modal-container {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    color: black;
+    padding: 20px 40px;
+    border-radius: 10px;
+    border: 2px solid ;
+}
+
+
+.modal-error {
+    z-index: 1001;
+}
+
+.modal-title {
+    padding: 10px 0;
+    margin: 0;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+.modal-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.modal-controls button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: rgb(57, 57, 57);
+    color: white;
+    border: 1px solid transparent;
+}
+
+.modal-controls button:hover {
+    background: #fff;
+    color: black;
+    border: 1px solid black;
+}
