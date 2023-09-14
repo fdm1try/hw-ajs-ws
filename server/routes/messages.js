@@ -5,6 +5,10 @@ const UserList = require('../UserList');
 const router = new Router();
 
 router.post('/messages/send', async (ctx) => {
+  if (!ctx.request.body) {
+    ctx.response.status = 400;
+    return;
+  }
   const { userId, message } = ctx.request.body;
   const user = UserList.findById(userId);
   if (!user) {

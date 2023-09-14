@@ -9,8 +9,12 @@ const UserList = require('./UserList');
 
 const PORT = 8123;
 
+const corsOptions = {};
+const [corsOrigin] = process.argv.slice(2);
+if (corsOrigin) corsOptions.origin = corsOrigin;
+
 const app = new Koa();
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(koaBody());
 app.use(router());
 const server = http.createServer(app.callback());

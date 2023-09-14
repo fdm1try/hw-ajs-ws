@@ -4,6 +4,10 @@ const UserList = require('../UserList');
 const router = new Router();
 
 router.post('/users/register', async (ctx) => {
+  if (!ctx.request.body) {
+    ctx.response.status = 400;
+    return;
+  }
   const { nickname } = ctx.request.body;
   if (!nickname || !nickname.length) {
     ctx.response.status = 400;
