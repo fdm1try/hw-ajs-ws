@@ -4,8 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { DefinePlugin } = require('webpack');
 
 module.exports = (env, argv) => {
-  const SERVER_HOST = { production: '1', development: 'localhost' };
-  const SERVER_PORT = { production: '1', development: '8123' };
+  const SERVER_USESSL = { production: true, development: false };
+  const SERVER_HOST = { production: 'websocketchat-kifj.onrender.com', development: 'localhost' };
+  const SERVER_PORT = { production: 443, development: 8123 };
 
   return {
     entry: './src/index.js',
@@ -47,6 +48,7 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new DefinePlugin({
+        SERVER_USESSL: JSON.stringify(SERVER_USESSL[argv.mode]),
         SERVER_HOST: JSON.stringify(SERVER_HOST[argv.mode]),
         SERVER_PORT: JSON.stringify(SERVER_PORT[argv.mode]),
       }),

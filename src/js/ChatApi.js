@@ -5,12 +5,16 @@ export default class ChatApi {
 
   static get endpoint() {
     // eslint-disable-next-line no-undef
-    return `http://${SERVER_HOST}:${SERVER_PORT}/`;
+    const proto = SERVER_USESSL ? 'https' : 'http';
+    // eslint-disable-next-line no-undef
+    return `${proto}://${SERVER_HOST}:${SERVER_PORT}/`;
   }
 
   static get wsEndpoint() {
     // eslint-disable-next-line no-undef
-    return `ws://${SERVER_HOST}:${SERVER_PORT}/ws`;
+    const proto = SERVER_USESSL ? 'wss' : 'ws';
+    // eslint-disable-next-line no-undef
+    return `${proto}://${SERVER_HOST}:${SERVER_PORT}/ws`;
   }
 
   static async post(url, body) {
