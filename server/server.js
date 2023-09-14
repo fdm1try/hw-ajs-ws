@@ -1,9 +1,9 @@
+const WS = require('ws');
 const Koa = require('koa');
 const http = require('http');
 const { koaBody } = require('koa-body');
 const cors = require('@koa/cors');
 const router = require('./routes');
-const WS = require('ws');
 const MessageList = require('./MessageList');
 const UserList = require('./UserList');
 
