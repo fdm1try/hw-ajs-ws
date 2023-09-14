@@ -50,3 +50,4 @@ wsServer.on('connection', (ws) => {
 wsServer.on('error', console.error);
 
 server.listen(PORT);
+console.log('Server started...');
